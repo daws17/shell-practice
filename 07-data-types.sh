@@ -9,3 +9,6 @@ NAME=devops
 sum=$((NUMBER1+NUMBER2+NAME))
 
 echo "sum is : ${sum}"
+
+LEADERS=("modi" "trump" "putin")
+echo "all leaders: ${LEADERS {@}}"
