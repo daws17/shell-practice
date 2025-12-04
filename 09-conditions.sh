@@ -1,8 +1,10 @@
 #!bin/bash
+ 
+NUMBER=$1
 
-if (5 -lt 10); then
-    this statement runs if expression is true
+if [ $NUMBER -lt 10 ]; then
+    echo "given number $NUMBER is less then 10
 
 else
-    this statement runs if expression is false
+    echo "given number $NUMBER is greater then 10"
 fi
