@@ -5,26 +5,21 @@ if [ $USERID -ne 0 ] ; then
     echo "ERROR::please run this script with root privelage"
     exit 1
 fi
-dnf install mysql -y
-if [ $? -ne 0 ] ; then
-    echo "ERROR::installing mysql is failure"
+
+VALIDATE(){
+  if [ $1 -ne 0 ] ; then
+    echo "ERROR::installing $2 is failure"
     exit 1
 else
-    echo "installing mysql is sucess"
+    echo "installing $2 is sucess"
 fi
+}
+
+dnf install mysql -y
+VALIDATE $? "mysql"
 
 dnf install nginx -y
-if [ $? -ne 0 ] ; then
-    echo "ERROR::installing nginx is failure"
-    exit 1
-else
-    echo "installing nginx is sucess"
-fi
+VALIDATE $? "nginx"
 
 dnf install mongodb-mongosh -y
-if [ $? -ne 0 ] ; then
-    echo "ERROR::installing mongodb-mongosh is failure"
-    exit 1
-else
-    echo "installing mongodb-mongosh is sucess"
-fi
+VALIDATE $? "mongodb-mongosh"
