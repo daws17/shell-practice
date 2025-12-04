@@ -11,7 +11,7 @@ VALIDATE(){
        echo "ERROR::installing $2 is failure"
        exit 1
     else
-       echo "installing $2 is sucess"
+       echo "installing $2 is SUCCESS"
     fi
 }
 
