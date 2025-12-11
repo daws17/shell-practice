@@ -27,5 +27,12 @@ VALIDATE () {
 
 for package in $@
 do
-  echo "package is: $package"
+   dnf list installed $package &>> $LOG-FAILED
+    
+    if [ $? -ne 0 ]; then
+        dnf install  $package -y &>> $LOG_FILE
+        VALIDATE $? "$package"
+    else
+        echo -e "$package is already exit......$Y skipping $N" |tee -a $LOG_FILE
+    fi
 done
