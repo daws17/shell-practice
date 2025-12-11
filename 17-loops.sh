@@ -17,12 +17,13 @@ if [ $USERID -ne 0 ];then
     exit1
 fi
 
-VALIDATE (){
+VALIDATE () {
     if  [ $1 -ne 0 ];then
         echo -e "installing $2....$R FAILED $N" |tee -a $LOG_FILE
     else
         echo -e "installing $2.....$G SUCCESS $N" |tee -a $LOG_FILE
     fi
+}    
 
 for package in $@
 do
